@@ -5,11 +5,11 @@ class Emprestimo:
         self.codigo = codigo 
         self.data_emprestimo  = data_emprestimo
         self.devolucao = None
-        self.iten = []
+        self.itens = []
 
     def adicionar_item(self, item):
         item_emprestado = ItemEmprestado(item)
-        self.itens.appened(item_emprestado)
+        self.itens.append(item_emprestado)
 
     def finalizar(self,data_devolucao):
         self.data_devolucao = data_devolucao
