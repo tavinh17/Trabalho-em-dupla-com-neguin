@@ -192,7 +192,7 @@ while True:
             print("Nenhum empréstimo cadastrado")
             continue
 
-        print("\nEmpréstimos cadsatrados:")
+        print("\nEmpréstimos cadastrados:")
 
         for emprestimo in emprestimos:
             print(
@@ -214,7 +214,7 @@ while True:
             print("Empréstimo não encontrado.")
             continue
 
-        data_devolucao = input("Digite a data da devolução:")
+        data_devolucao = input("Digite a data da devolução do item:")
 
         emprestimo_escolhido.finalizar(data_devolucao)
 
