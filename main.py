@@ -1,4 +1,4 @@
-
+print("main foi executado")
 from livro import Livro
 from revista import Revista
 from usuario import Usuario
@@ -267,25 +267,31 @@ while True:
         print("\n===== EMPRÉSTIMOS =====")
 
         for emprestimo in emprestimos:
+
             print(f"Código: {emprestimo.codigo}")
-            print(f"Data do empréstimo: {emprestimo.data_emprestimo}")
+            print(
+            f"Data do empréstimo: "
+            f"{emprestimo.data_emprestimo}")
 
-            if emprestimo.data_devolucao:
-                print(f"Data da devolução:"
-                f"{emprestimo.data_devolucao}")
-
-
+        if emprestimo.data_devolucao:
+            print(
+                f"Data da devolução: "
+                f"{emprestimo.data_devolucao}"
+            )
         else:
             print("Status: Em aberto")
 
-            print("Itens:")
+        print("Itens:")
 
         for item_emprestado in emprestimo.itens:
-            print(f"- {item_emprestado.exibir_item()}")
+            print(
+                f"- {item_emprestado.exibir_item()}"
+            )
 
-            print("--------------------------------")
+        print("--------------------------------")
 
-                
     elif opcao == "0":
         print("Encerrando o sistema...")
         break
+
+    

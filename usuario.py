@@ -1,12 +1,12 @@
 class Usuario:
-    def __init__(self, id_usuario, nome, emai):      
+    def __init__(self, id_usuario, nome, email):      
         self.id_usuario = id_usuario
         self.nome = nome 
         self.email = email
         self.emprestimos = []
 
-    def realizar_emprestimo(self, emprestimo)
-        self.emprestimos.appened(emprestimo)
+    def realizar_emprestimo(self, emprestimo):
+        self.emprestimos.append(emprestimo)
 
     def listar_emprestimos(self, emprestimo):
         if not self.emprestimo:
