@@ -12,7 +12,7 @@ emprestimos = []
 
 def mostrar_menu():
     print("\n================================")
-    print("     BIBLIOTECA DOS NEGUIM)")
+    print("     BIBLIOTECA DOS NEGUIM ")
     print("================================")
     print("1  - Cadastrar usuário")
     print("2  - Cadastrar livro")
