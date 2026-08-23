@@ -1,3 +1,4 @@
+
 from livro import Livro
 from revista import Revista
 from usuario import Usuario
@@ -269,7 +270,7 @@ while True:
             print(f"Código: {emprestimo.codigo}")
             print(f"Data do empréstimo: {emprestimo.data_emprestimo}")
 
-        if emprestimo.data_devolucao:
+            if emprestimo.data_devolucao:
                 print(f"Data da devolução:"
                 f"{emprestimo.data_devolucao}")
 
