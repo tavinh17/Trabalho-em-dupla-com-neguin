@@ -29,7 +29,7 @@ def mostrar_menu():
 
     while True:
         mostrar_menu()
-
+        
         opcao = input("Escolha uma opção:")
 
         if opcao == "1":
@@ -38,7 +38,7 @@ def mostrar_menu():
             email = input("Digite o e-mail do usuário:")
 
             usuario = Usuario(id_usuario, nome, email)
-            usuarios.appened(usuario)
+            usuarios.append(usuario)
 
             print("Usuário Cadastrado!")
 
@@ -48,7 +48,7 @@ def mostrar_menu():
             autor = input("Digite o autor do livro: ")
 
             livro = Livro(codigo, titulo, autor)
-            itens.appened(livro)
+            itens.append(livro)
 
             print("livro cadastrado!")
 
@@ -84,7 +84,7 @@ def mostrar_menu():
             for prateleira in prateleiras:
                 print(f"{prateleira.numero} - {prateleira.localizacao}")
 
-            numero_prateleira = int("input(Digite o número da prateleira:"))
+            numero_prateleira = int(input("Digite o número da prateleira:"))
 
             prateleira_escolhida = None
 
@@ -98,6 +98,7 @@ def mostrar_menu():
                 continue
 
             print("\nItens disponíveis:")
+
             for item in itens:
                 print(f"{item.codigo} - {item.titulo}")
 
@@ -107,9 +108,10 @@ def mostrar_menu():
 
             for item in itens:
                 if item.codigo == codigo_item:
+                    item_escolhido = item 
                     break
 
-             if item_escolhido is None:
+            if item_escolhido is None:
                  print("Item não encontrado.")
 
             prateleira_escolhida.adicionar_item(item_escolhido)
@@ -120,11 +122,11 @@ def mostrar_menu():
         if opcao == "6":
             if not usuarios:
                 print("Nenhum usuário cadastrado.")
-                    continue 
+                continue 
 
-                if not itens:
-                    print("Nenhum item cadastrado")
-                    continue
+            if not itens:
+                print("Nenhum item cadastrado")
+                continue
 
                 print("\nUsuários cadastrados:")
                 for usuario in usuarios:
@@ -184,16 +186,16 @@ def mostrar_menu():
 
 
         if opcao == "7":
-                if not emprestimos:
-                    print("Nenhum empréstimo cadastrado")
-                    continue
+            if not emprestimos:
+                print("Nenhum empréstimo cadastrado")
+                continue
 
-                print("\nEmpréstimos cadsatrados:")
+            print("\nEmpréstimos cadsatrados:")
 
-                for emprestimo in emprestimos:
-                    print(
-                        f"{emprestimo.codigo} -"
-                        f"Data: {emprestimo.data_emprestimo}"
+            for emprestimo in emprestimos:
+                print(
+                    f"{emprestimo.codigo} -"
+                    f"Data: {emprestimo.data_emprestimo}"
                     )
 
 
@@ -203,83 +205,83 @@ def mostrar_menu():
 
                 emprestimo_escolhido = None
 
-                for emprestimo in emprestimos:
-                    if emprestimo.codigo == codigo_emprestimo:
-                        emprestimo_escolhido = emprestimo
-                        break
+            for emprestimo in emprestimos:
+                if emprestimo.codigo == codigo_emprestimo:
+                    emprestimo_escolhido = emprestimo
+                    break
 
-                if emprestimo_escolhido is None:
-                    print("Empréstimo não encontrado.")
-                    continue
+            if emprestimo_escolhido is None:
+                print("Empréstimo não encontrado.")
+                continue
 
-                data_devolucao = input("Digite a data da devolução:")
+            data_devolucao = input("Digite a data da devolução:")
 
-                emprestimo_escolhido.finalizar(data_devolucao)
+            emprestimo_escolhido.finalizar(data_devolucao)
 
-                print("Empréstimo finalizado! ")
-
-
-         if opcao == "8":
-                if not usuarios:
-                    print("Nenhum usuário cadastrado.")
-                    continue
+            print("Empréstimo finalizado! ")
 
 
-                print("\n===== USUÁRIOS CADASTRADOS =====")
+        if opcao == "8":
+            if not usuarios:
+                print("Nenhum usuário cadastrado.")
+                continue
 
-                for usuario in usuarios:
-                    print(f"ID: {usuario.id_usuario}")
-                    print(f"Nome: {usuario.nome}")
-                    print(f"E-mail: {usuario.email}")
-                    print(f"Empréstimos: {len(usuario.emprestimos)}")
-                    print("--------------------------------")
 
-         if opcao == "9":
-                 if not itens:
-                    print("Nenhum item cadastrado.")
-                    continue
+            print("\n===== USUÁRIOS CADASTRADOS =====")
 
-                print("\n===== ITENS DA BIBLIOTECA =====")
+            for usuario in usuarios:
+                print(f"ID: {usuario.id_usuario}")
+                print(f"Nome: {usuario.nome}")
+                print(f"E-mail: {usuario.email}")
+                print(f"Empréstimos: {len(usuario.emprestimos)}")
+                print("--------------------------------")
 
-                for item in itens:
-                    print(item.exibir_informacoes())
-                    print(f"Disponível: {'Sim' if item.disponivel else 'Não'}")
-                    print("--------------------------------")
+        if opcao == "9":
+            if not itens:
+                print("Nenhum item cadastrado.")
+                continue
+
+            print("\n===== ITENS DA BIBLIOTECA =====")
+
+            for item in itens:
+                print(item.exibir_informacoes())
+                print(f"Disponível: {'Sim' if item.disponivel else 'Não'}")
+                print("--------------------------------")
 
         if opcao == "10":
-                if not prateleiras:
-                    print("nenhuma prateleira cadastrada.")
-                    continue 
+            if not prateleiras:
+                print("nenhuma prateleira cadastrada.")
+                continue 
 
-                print ("\n===== PRATELEIRAS =====")
+            print ("\n===== PRATELEIRAS =====")
 
-                for prateleira in prateleiras:
-                    print(prateleira.listar_itens())
-                    print("--------------------------------")
+            for prateleira in prateleiras:
+                print(prateleira.listar_itens())
+                print("--------------------------------")
 
-         if opcao == "11":
-                if not emprestimos:
-                    print("Nenhum empréstimo cadastrado.")
-                    continue
+        if opcao == "11":
+            if not emprestimos:
+                print("Nenhum empréstimo cadastrado.")
+                continue
 
-                print("\n===== EMPRÉSTIMOS =====")
+            print("\n===== EMPRÉSTIMOS =====")
 
-                for emprestimo in emprestimos:
-                    print(f"Código: {emprestimo.codigo}")
-                    print(f"Data do empréstimo: {emprestimo.data_emprestimo}")
+            for emprestimo in emprestimos:
+                print(f"Código: {emprestimo.codigo}")
+                print(f"Data do empréstimo: {emprestimo.data_emprestimo}")
 
-                    if emprestimo.data_devolucao:
-                        print(f"Data da devolução:"
-                              f"{emprestimo.data_devolucao}")
+            if emprestimo.data_devolucao:
+                print(f"Data da devolução:"
+                    f"{emprestimo.data_devolucao}")
 
 
-                    else:
-                        print("Status: Em aberto")
+            else:
+                print("Status: Em aberto")
 
-                    print("Itens:")
+                print("Itens:")
 
-                    for item_emprestado in emprestimo.itens:
-                        print(f"- {item_emprestado.exibir_item()}")
+                for item_emprestado in emprestimo.itens:
+                    print(f"- {item_emprestado.exibir_item()}")
 
                     print("--------------------------------")
 
