@@ -233,6 +233,7 @@ while True:
             print(f"ID: {usuario.id_usuario}")
             print(f"Nome: {usuario.nome}")
             print(f"E-mail: {usuario.email}")
+            print(f"Carteirinha: {usuario.carteirinha.numero}")
             print(f"Empréstimos: {len(usuario.emprestimos)}")
             print("--------------------------------")
 
